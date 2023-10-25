@@ -1,16 +1,12 @@
 Pipeline{
-           stage('Two') {
-                          environment {                                       // Declaring at state will allow only that stage to access that variable
-                            ENV_URL = "stage2.global.com"
-                                      }
+           stage('One') {
+                          
                           steps {
                            echo "I am Stage Two Step"
-                           echo "ENV_URL is ${ENV_URL}"
-                           sh "sleep 300"
-                               }
+                                }
                         }
 
-                stage('Three') {
+                stage('Two') {
                     steps {
                         sh '''
                             echo Hello World
@@ -19,6 +15,6 @@ Pipeline{
                             sleep 300
                             env
                         '''
-                    }
-                }
+                          }
+                            }
 }
